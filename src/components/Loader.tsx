@@ -8,9 +8,10 @@ interface LoaderProps {
 
 function Loader({ isLoading, setIsLoading }: LoaderProps) {
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1900);
+    return () => clearTimeout(timer); // Clear timeout if component unmounts early
   }, [setIsLoading]);
 
   return (
@@ -63,11 +64,11 @@ function Loader({ isLoading, setIsLoading }: LoaderProps) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M 50, 5
-          L 11, 27
-          L 11, 72
-          L 50, 95
-          L 89, 73
-          L 89, 28 z"
+                  L 11, 27
+                  L 11, 72
+                  L 50, 95
+                  L 89, 73
+                  L 89, 28 z"
               />
             </g>
           </motion.svg>
