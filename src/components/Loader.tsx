@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Loader({ isLoading, setIsLoading }: any) {
+interface LoaderProps {
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Loader({ isLoading, setIsLoading }: LoaderProps) {
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading();
+      setIsLoading(false);
     }, 1900);
   }, [setIsLoading]);
+
   return (
     <AnimatePresence>
       {isLoading && (
