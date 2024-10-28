@@ -62,7 +62,7 @@ const Contact = () => {
         hidden: { opacity: 0, y: 0 },
       }}
     >
-      <h2 className="contact-title">What's Next?</h2>
+      <h2 className="contact-title">What is Next?</h2>
       <h2 className="contact-sub-title">Get In Touch</h2>
       <form onSubmit={handleSubmit} className="contact-form">
         <input

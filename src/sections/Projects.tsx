@@ -81,7 +81,6 @@ function Projects() {
           ({
             image,
             projectDescription,
-            projectLink,
             projectExternalLinks,
             projectName,
             projectTech,

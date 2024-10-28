@@ -3,9 +3,7 @@ import React from "react";
 import {
   FiGithub,
   FiInstagram,
-  FiYoutube,
   FiLinkedin,
-  FiTwitter,
   FiFacebook,
 } from "react-icons/fi";
 import { motion } from "framer-motion";

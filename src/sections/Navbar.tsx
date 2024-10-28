@@ -1,26 +1,27 @@
-import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgClose } from "react-icons/cg";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
 function Navbar() {
   const [navbarVisible, setNavbarVisible] = useState(false);
   const [responsiveNavVisible, setResponsiveNavVisible] = useState(false);
+
   const sectionLinks = [
     { name: "About", link: "/#about" },
     { name: "Resume", link: "/#experience" },
     { name: "Projects", link: "/#work" },
-    { name: "Contact",  link: "/#contact" },
+    { name: "Contact", link: "/#contact" },
   ];
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.pageYOffset > 100
-        ? setNavbarVisible(true)
-        : setNavbarVisible(false);
-    });
+    const handleScroll = () => {
+      setNavbarVisible(window.pageYOffset > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -33,9 +34,7 @@ function Navbar() {
       e.stopPropagation();
     });
     const html = document.querySelector("html");
-    html?.addEventListener("click", (e) => {
-      setResponsiveNavVisible(false);
-    });
+    html?.addEventListener("click", () => setResponsiveNavVisible(false));
   }, []);
 
   useEffect(() => {
@@ -120,7 +119,7 @@ function Navbar() {
               delay: 0.6,
             }}
           >
-            {/* <Button text="Resume" link="https://drive.google.com/file/d/1_b9RJAHUILTEYJAwtW72oi0jycbX1LK2/view?usp=sharing" /> */}
+            {/* Optional button component can go here */}
           </motion.div>
         </div>
       </div>
