@@ -13,8 +13,8 @@ function SocialIcons() {
     { 
       name: "Github", 
       icon: <FiGithub />, 
-      link: "https://github.com/farhan-sadik247" },
-,
+      link: "https://github.com/farhan-sadik247" 
+    },
     {
       name: "LinkedIn",
       icon: <FiLinkedin />,
@@ -31,6 +31,7 @@ function SocialIcons() {
       link: "https://www.facebook.com/farhan.sadiq2407",
     },
   ];
+
   return (
     <motion.div
       className="social-icons"
