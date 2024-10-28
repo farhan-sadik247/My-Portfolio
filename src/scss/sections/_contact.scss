@@ -1,0 +1,83 @@
+.contact {
+  max-width: 700px;
+  margin: 15rem auto;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .contact-title {
+    color: var(--theme-color);
+    font-size: var(--tbase);
+    font-family: var(--fira-code);
+    font-weight: 300;
+    &::before {
+      counter-increment: title;
+      content: "0" counter(title) ".";
+      margin-right: 0.5rem;
+      color: var(--theme-color);
+    }
+  }
+
+  .contact-sub-title {
+    font-size: var(--tgiant);
+    font-family: var(--raleway);
+    color: var(--light-slate);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--light-slate);
+      background-color: var(--light-navy);
+      color: var(--lightest-slate);
+      font-size: var(--tlarge);
+      font-family: var(--raleway);
+      outline: none;
+    }
+
+    textarea {
+      height: 150px;
+      resize: none;
+    }
+
+    /* On larger screens, arrange input fields in two columns */
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+
+      /* Make the message textarea span both columns */
+      textarea {
+        grid-column: span 2;
+      }
+
+      /* Ensure full width for inputs that span both columns (like message textarea) */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="subject"],
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+
+  .contact-cta {
+    margin-top: 1rem;
+    grid-column: span 2; /* Make the send button span both columns on large screens */
+    
+    .btn {
+      padding: 1rem 2rem;
+    }
+  }
+}
