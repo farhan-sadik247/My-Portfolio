@@ -44,6 +44,7 @@ function Projects() {
   );
 
   const toggleExpanded = (index) => {
+    // Modify the state to toggle the specific project
     setExpandedStates((prevStates) =>
       prevStates.map((state, i) => (i === index ? !state : state))
     );
