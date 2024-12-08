@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const rotatingTexts = ["student", "web developer", "learner", "programmer"];
+const rotatingTexts = ["student", "frontend developer", "learner", "programmer"];
 
 function Hero() {
   const [displayText, setDisplayText] = useState("");
@@ -102,9 +102,10 @@ function Hero() {
           delay: 1.65,
         }}
       >
+        
         <Button
-          text="Check out my projects"
-          link="https://github.com/farhan-sadik247"
+          text="Check out my resume"
+          link="https://drive.google.com/file/d/1nAFLnuvoXGhUGF0AlMyTF2RoYfORHmcE/view"
         />
       </motion.div>
     </div>

@@ -14,6 +14,7 @@ function Navbar() {
     { name: "Resume", link: "/#experience" },
     { name: "Projects", link: "/#work" },
     { name: "Contact", link: "/#contact" },
+    { name: "CV", link: "https://drive.google.com/file/d/1nAFLnuvoXGhUGF0AlMyTF2RoYfORHmcE/view" },
   ];
 
   useEffect(() => {
