@@ -38,6 +38,17 @@ function Projects() {
     },
   ];
 
+  // State to track the expanded/collapsed status of each project
+  const [expandedStates, setExpandedStates] = useState(
+    projectsData.map(() => false) // Initialize all to false
+  );
+
+  const toggleExpanded = (index) => {
+    setExpandedStates((prev) =>
+      prev.map((state, i) => (i === index ? !state : state))
+    );
+  };
+
   return (
     <div className="projects" id="work">
       <motion.div
@@ -55,54 +66,53 @@ function Projects() {
       </motion.div>
       <div className="projects-container">
         {projectsData.map(
-          ({ image, projectDescription, projectExternalLinks, projectName, projectTech }) => {
-            const [expanded, setExpanded] = useState(false);
-
-            return (
-              <motion.div
-                className="project"
-                key={projectName}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                variants={{
-                  visible: { opacity: 1, y: -50 },
-                  hidden: { opacity: 0, y: 0 },
-                }}
-              >
-                <div className="project-image">
-                  <Image src={image} alt={projectName} width={600} height={300} />
-                </div>
-                <div className="project-description">
-                  <p>
-                    {expanded
-                      ? projectDescription
-                      : `${projectDescription.slice(0, 100)}...`}
-                    <button
-                      onClick={() => setExpanded(!expanded)}
-                      className="see-more-btn"
-                    >
-                      {expanded ? "Show Less" : "See More"}
-                    </button>
-                  </p>
-                </div>
-                <ul className="project-tech">
-                  {projectTech.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
-                <div className="project-links">
-                  <Link
-                    href={projectExternalLinks.github}
-                    className="github-link"
+          (
+            { image, projectDescription, projectExternalLinks, projectName, projectTech },
+            index
+          ) => (
+            <motion.div
+              className="project"
+              key={projectName}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              variants={{
+                visible: { opacity: 1, y: -50 },
+                hidden: { opacity: 0, y: 0 },
+              }}
+            >
+              <div className="project-image">
+                <Image src={image} alt={projectName} width={600} height={300} />
+              </div>
+              <div className="project-description">
+                <p>
+                  {expandedStates[index]
+                    ? projectDescription
+                    : `${projectDescription.slice(0, 100)}...`}
+                  <button
+                    onClick={() => toggleExpanded(index)}
+                    className="see-more-btn"
                   >
-                    <FiGithub />
-                  </Link>
-                </div>
-              </motion.div>
-            );
-          }
+                    {expandedStates[index] ? "Show Less" : "See More"}
+                  </button>
+                </p>
+              </div>
+              <ul className="project-tech">
+                {projectTech.map((tech) => (
+                  <li key={tech}>{tech}</li>
+                ))}
+              </ul>
+              <div className="project-links">
+                <Link
+                  href={projectExternalLinks.github}
+                  className="github-link"
+                >
+                  <FiGithub />
+                </Link>
+              </div>
+            </motion.div>
+          )
         )}
       </div>
     </div>
