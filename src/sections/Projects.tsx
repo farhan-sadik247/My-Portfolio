@@ -16,35 +16,14 @@ function Projects() {
         github: "https://github.com/al-rafi304/TailorMaven.git",
       },
     },
-    {
-      image: "/tolet.png",
-      projectName: "House Rental Website",
-      projectDescription:
-        "House Rental Website is built using the Django framework, featuring user authentication, property listings, booking management, and robust search capabilities. The backend utilizes Python with libraries like Pillow for image processing and Requests for HTTP operations, while SQLite serves as the database. For the front end, standard HTML and Bootstrap are employed for responsive design, ensuring a user-friendly experience for managing house rentals.",
-      projectTech: ["Django", "Bootstrap CSS", "SQLite", "Python"],
-      projectExternalLinks: {
-        github: "https://github.com/farhan-sadik247/House-Rental-Website.git",
-      },
-    },
-    {
-      image: "/edu.png",
-      projectName: "Education Platform Website",
-      projectDescription:
-        "Professor's Hideout is an online education platform that offers personalized learning for all ages through a user-friendly interface built with ReactJS and Bootstrap. It features a wide range of courses, user authentication, a comprehensive catalog, and secure payment options. Powered by Django and the Django REST Framework, with SQLite for data management, the platform connects expert educators with students to help them achieve their full potential.",
-      projectTech: ["React", "Django", "Django REST Framework", "Bootstrap", "SQLite"],
-      projectExternalLinks: {
-        github: "https://github.com/farhan-sadik247/EducationPlatForm-Frontend.git",
-      },
-    },
+    // ... other project data
   ];
 
-  // Create a state to manage the expanded state of each project
-  const [expandedStates, setExpandedStates] = useState(
-    Array(projectsData.length).fill(false) // Initialize all to `false`
+  const [expandedStates, setExpandedStates] = useState<boolean[]>(
+    Array(projectsData.length).fill(false)
   );
 
-  const toggleExpanded = (index) => {
-    // Modify the state to toggle the specific project
+  const toggleExpanded = (index: number) => {
     setExpandedStates((prevStates) =>
       prevStates.map((state, i) => (i === index ? !state : state))
     );
