@@ -38,14 +38,14 @@ function Projects() {
     },
   ];
 
-  // State to track the expanded/collapsed status of each project
+  // Create a state to manage the expanded state of each project
   const [expandedStates, setExpandedStates] = useState(
-    projectsData.map(() => false) // Initialize all to false
+    Array(projectsData.length).fill(false) // Initialize all to `false`
   );
 
   const toggleExpanded = (index) => {
-    setExpandedStates((prev) =>
-      prev.map((state, i) => (i === index ? !state : state))
+    setExpandedStates((prevStates) =>
+      prevStates.map((state, i) => (i === index ? !state : state))
     );
   };
 
